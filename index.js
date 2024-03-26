@@ -21,7 +21,7 @@ function playRound() {
     const playerChoice = prompt('Rock, paper, or scissors?'); //prompts player with choices
     const computerChoice = getComputerChoice(); //gets computer choice
 
-    const win = `You win! ${player.Choice.toLowerCase()} beats ${computerChoice}.`; // player win
+    const win = `You win! ${playerChoice.toLowerCase()} beats ${computerChoice}.`; // player win
     const lose = `You lose! ${computerChoice} beats ${playerChoice.toLowerCase()}.`; // player loss
     const draw = `Draw! ${playerChoice.toLowerCase()} is equal to ${computerChoice}.`; // draw 
 
@@ -57,5 +57,29 @@ function playRound() {
         }
     }
 }
+
+// full game x5 rounds
+
+function playGame() {
+    let player = 0;
+    let computer = 0;
+    let games = 1;
+
+    while (games <= 5) {
+        const result = playRound();
+
+        if (result === 'win') {
+            player++;
+            console.log(`Game ${games} scores \n player: ${player} computer: ${computer}`);
+        } else if (result === 'lose') {
+            computer++;
+            console.log(`Game ${games} scores \n player: ${player} computer: ${computer}`);
+        } else if (result === 'tie') {
+            console.log(`Game ${games} scores \n player: ${player} computer: ${computer}`);
+        } games++;
+    }
+    console.log(`Game over! Final scores \n player: ${player} computer: ${computer}`);
+}
+playGame();
 
 
